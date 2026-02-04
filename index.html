@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>NFCおみくじ</title>
+  <style>
+    body {
+      font-family: system-ui;
+      text-align: center;
+      margin-top: 80px;
+    }
+    .result {
+      font-size: 2rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🔮 NFCおみくじ</h1>
+<button onclick="draw()">おみくじを引く</button>
+<div class="result" id="result"></div>
+
+<script>
+const fortunes = [
+  { name: "大吉", msg: "今日は全部うまくいく。調子乗れ。" },
+  { name: "中吉", msg: "悪くない。攻めていい日。" },
+  { name: "小吉", msg: "地味に勝つ。" },
+  { name: "吉", msg: "現状維持でOK。" },
+  { name: "凶", msg: "今日は無理すんな。" }
+];
+
+function draw() {
+  const f = fortunes[Math.floor(Math.random() * fortunes.length)];
+  document.getElementById("result").innerHTML =
+    `<strong>${f.name}</strong><br>${f.msg}`;
+}
+</script>
+
+</body>
+</html>
